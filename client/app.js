@@ -11,7 +11,7 @@ function generateInsights(totals) {
     
     const highest = categories.reduce((prev, current) => (prev.val > current.val) ? prev : current);
 
-    // 2. Personalized Tip Logic
+    //Logic
     let tip = "";
     if (highest.val === 0) {
         tip = "Great start! Log your first activity to see how you can improve.";
