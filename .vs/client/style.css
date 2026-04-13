@@ -1,0 +1,76 @@
+:root {
+    --primary-green: #2d6a4f;
+    --light-green: #d8f3dc;
+    --accent-orange: #ff9f1c;
+    --text-dark: #1b4332;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fdf9;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+nav {
+    background: var(--primary-green);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.card, .input-panel, .visuals, .insights {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.visuals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mainChart {
+    max-width: 500px !important;
+    max-height: 500px !important;
+}
+
+.stats-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.card {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid var(--light-green);
+}
+
+button {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1b4332;
+}
