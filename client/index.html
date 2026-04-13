@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EcoTrack | Carbon Footprint Logger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack | Carbon Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <nav>
         <h1>EcoTrack</h1>
-        <div id="auth-links">
-            </div>
+        <div id="auth-status">Logged in as: <span id="user-display">Guest</span></div>
     </nav>
 
-    <main class="dashboard">
+    <div class="dashboard">
         <section class="input-panel">
-            <h2>Log New Activity</h2>
+            <h2>Log Activity</h2>
             <form id="log-form">
                 <select id="category" required>
                     <option value="food">Food</option>
                     <option value="transport">Transport</option>
                     <option value="energy">Energy</option>
                 </select>
-                <input type="text" id="name" placeholder="Activity (e.g. Steak dinner)" required>
+                <input type="text" id="name" placeholder="Description" required>
                 <input type="number" id="value" placeholder="CO2 in kg" required>
                 <button type="submit">Log Activity</button>
             </form>
@@ -31,21 +31,30 @@
         <section class="visuals">
             <div class="stats-row">
                 <div class="card">Total: <span id="total-val">0</span> kg</div>
-                <div class="card">Avg: <span id="avg-val">25</span> kg</div>
+                <div class="card">Community Avg: 25 kg</div>
             </div>
-            <canvas id="mainChart"></canvas>
+            
+            <div class="chart-container">
+                <canvas id="mainChart"></canvas>
+            </div>
+
             <div class="filters">
-                <button onclick="updateDisplay('all')">All</button>
-                <button onclick="updateDisplay('food')">Food</button>
-                <button onclick="updateDisplay('transport')">Transport</button>
+                <button onclick="app.updateDisplay('all')">All</button>
+                <button onclick="app.updateDisplay('food')">Food</button>
+                <button onclick="app.updateDisplay('transport')">Transport</button>
+                <button onclick="app.updateDisplay('energy')">Energy</button>
             </div>
         </section>
 
-        <section class="insights" id="insight-engine">
-            <h3>Personalized Tips</h3>
-            <p id="tip-text">Log an activity to see recommendations.</p>
+        <section class="insights">
+            <h3>Personalised Tips</h3>
+            <p id="tip-text">Log data to see your footprint analysis.</p>
+            <div id="goal-progress">
+                <small>Weekly Goal Progress</small>
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+            </div>
         </section>
-    </main>
+    </div>
 
     <script src="storage.js"></script>
     <script src="app.js"></script>
